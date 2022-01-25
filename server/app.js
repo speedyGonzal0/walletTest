@@ -20,14 +20,14 @@ app.use(express.urlencoded({
 app.get("/create", function (req, res){
     const mnemonic = bip39.generateMnemonic()
     const wallet = new ethers.Wallet.fromMnemonic(mnemonic)
-    console.log(mnemonic + " "+ wallet.address)
+    // console.log(mnemonic + " "+ wallet.address)
     res.send({mnemonic: mnemonic, wallet: wallet.address})
 })
 
 app.post("/import", function (req, res){
     const {walletinput} = req.body;
     const wallet = new ethers.Wallet.fromMnemonic(walletinput)
-    console.log(wallet.address)
+    // console.log(wallet.address)
     res.send( wallet.address)
 })
 
